@@ -13,7 +13,13 @@ std::mutex obj;
 
 Logger::Logger()
 {
-    std::string env = "D:";
+    std::string env;
+    #if _WIN32_
+        env = "D:";
+    #else
+        env = getenv("HOME");
+    #endif
+
     this->mLogPath = env +  std::string("/Logs");
     std::cout << "Log path: " << this->mLogPath << std::endl;
 }
@@ -76,7 +82,7 @@ void Logger::WriteToFile(std::unique_ptr<LogArgs> log)
             fileStream.open(logFile, std::ios::out | std::ios::app);
         }
         
-        fileStream << log->GetLogTime() << "\t" << log->GetActionMessage() << std::endl;
+        fileStream << log->GetLogTime() << "\t[" << EnumToString(log->GetLevel()) << "]\t"  << log->GetActionMessage() << std::endl;
         fileStream.close();
         // std::cout << log->GetActionMessage() << std::endl;
     }

@@ -13,26 +13,35 @@
     LOGTYPE_TABLE(Final,       "Final") 
 
 #define LOGTYPE_TABLE(a, b) a,
-enum LogType {LOGTYPE_VALUE_TABLE};
+enum class LogType {LOGTYPE_VALUE_TABLE};
 #undef LOGTYPE_TABLE
 
 inline const char* EnumToString(LogType value) {
 #define LOGTYPE_TABLE(a, b) b,
     static const char* table[] = {LOGTYPE_VALUE_TABLE};
 #undef LOGTYPE_TABLE
-    return table[value];
+    return table[(int)value];
 };
 
-enum LogLevel
-{
-    LOGALL = 0,
-    LOGTRACE,
-    LOGDEBUG,
-    LOGINFO,
-    LOGWARN,
-    LOGERROR,
-    LOGFATAL,
-    LOGOFF,
+#define LOGLEVEL_VALUE_TABLE \
+    LOGLEVEL_TABLE(LOGALL,   0, "LOGALL") \
+    LOGLEVEL_TABLE(LOGTRACE, 1, "LOGTRACE") \
+    LOGLEVEL_TABLE(LOGDEBUG, 2, "LOGDEBUG") \
+    LOGLEVEL_TABLE(LOGINFO,  3, "LOGINFO") \
+    LOGLEVEL_TABLE(LOGWARN,  4, "LOGWARN") \
+    LOGLEVEL_TABLE(LOGERROR, 5, "LOGERROR") \
+    LOGLEVEL_TABLE(LOGFATAL, 6, "LOGFATAL") \
+    LOGLEVEL_TABLE(LOGOFF,   7, "LOGOFF")
+
+#define LOGLEVEL_TABLE(a,b,c) a = b, 
+enum class LogLevel {LOGLEVEL_VALUE_TABLE};
+#undef LOGLEVEL_TABLE
+
+inline const char* EnumToString(LogLevel value) {
+#define LOGLEVEL_TABLE(a,b,c) c,
+    static const char* table[] = {LOGLEVEL_VALUE_TABLE};
+#undef LOGLEVEL_TABLE
+    return table[(int)value];
 };
 
 #define PRINT_STEP_TIME(STEP, ELAPSED_TIME_MS) std::cout << STEP << " spend " << ELAPSED_TIME_MS << " ms" << std::endl;
