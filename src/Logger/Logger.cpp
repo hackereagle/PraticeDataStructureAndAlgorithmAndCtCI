@@ -14,7 +14,7 @@ std::mutex obj;
 Logger::Logger()
 {
     std::string env;
-    #if _WIN32_
+    #if _WIN32
         env = "D:";
     #else
         env = getenv("HOME");

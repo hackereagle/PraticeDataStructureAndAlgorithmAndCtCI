@@ -3,7 +3,12 @@ set(PROJECT_NAME LoggerTesting)
 aux_source_directory(. DIR_SRC)
 
 add_library(myLib SHARED IMPORTED)
-set_target_properties(myLib PROPERTIES IMPORTED_LOCATION ${CMAKE_BINARY_DIR}/lib/libLogger.so)
+if(MSVC)
+	set_target_properties(myLib PROPERTIES IMPORTED_LOCATION ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/Logger.lib)
+else()
+	set_target_properties(myLib PROPERTIES IMPORTED_LOCATION ${CMAKE_BINARY_DIR}/lib/libLogger.so)
+endif(MSVC)
+include_directories(${CMAKE_SOURCE_DIR}/src/Logger)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
