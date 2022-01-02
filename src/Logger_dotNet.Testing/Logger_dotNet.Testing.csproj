@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logger_dotNet\Logger_dotNet.csproj">
+      <Project>{1d30fd93-83a8-42ac-9653-42474cd1193e}</Project>
+      <Name>Logger_dotNet</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

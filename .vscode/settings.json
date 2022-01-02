@@ -50,7 +50,12 @@
         "list": "cpp",
         "map": "cpp",
         "ratio": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "bit": "cpp",
+        "codecvt": "cpp",
+        "condition_variable": "cpp",
+        "iomanip": "cpp",
+        "mutex": "cpp"
     },
     //"C_Cpp.workspaceParsingPriority": "low"
     "files.exclude": {
