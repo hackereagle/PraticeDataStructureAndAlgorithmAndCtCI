@@ -8,7 +8,11 @@
 #include <string>
 #include "LogArgs.h"
 
+#ifdef _WIN32
+class DLLEXPORT_LOGGER_API Logger
+#else
 class Logger
+#endif
 {
 public:
     ~Logger();
