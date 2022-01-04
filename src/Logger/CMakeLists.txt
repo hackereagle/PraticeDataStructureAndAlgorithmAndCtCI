@@ -6,7 +6,7 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 if(MSVC)
-	#add_library(${PROJECT_NAME} STATIC ${DIR_SRC})
+	add_compile_definitions(EXPORTED_DLL)
 	add_library(${PROJECT_NAME} SHARED ${DIR_SRC})
 	target_link_libraries(${PROJECT_NAME} ${CMAKE_DL_LIBS} Threads::Threads)
 else()
