@@ -2,6 +2,14 @@
 #ifndef _LOGGER_COMMON_H_
 #define _LOGGER_COMMON_H_
 
+#if _WIN32
+    #ifndef IMPORTED_DLL
+    #define DLLEXPORT_LOGGER_API __declspec(dllimport)
+    #else
+    #define DLLEXPORT_LOGGER_API __declspec(dllexport)
+    #endif
+#endif //_WIN32
+
 #define LOGTYPE_VALUE_TABLE \
     LOGTYPE_TABLE(Start,       "Start") \
     LOGTYPE_TABLE(Camera,      "Camera") \
