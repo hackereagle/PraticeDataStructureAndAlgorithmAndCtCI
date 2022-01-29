@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.11)
-set(${PROJECT_NAME} DataStructures)
+set(PROJECT_NAME DataStructures)
 project(${PROJECT_NAME})
 
 aux_source_directory(. DIR_SRC)

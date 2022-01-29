@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.11)
-set(${PROJECT_NAME} Algorithms)
+set(PROJECT_NAME Algorithms)
 project(${PROJECT_NAME})
 
 include_directories(${CMAKE_SOURCE_DIR}/DataStructures ${CMAKE_SOURCE_DIR}/Algorithms)
