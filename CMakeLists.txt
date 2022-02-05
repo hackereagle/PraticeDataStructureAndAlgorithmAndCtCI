@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDAED 17)
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
+add_subdirectory(logResp)
 add_subdirectory(DataStructures)
 add_subdirectory(DataStructures.Testing)
 add_subdirectory(Algorithms)
