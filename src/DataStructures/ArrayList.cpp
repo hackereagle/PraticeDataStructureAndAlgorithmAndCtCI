@@ -21,32 +21,32 @@ size_t ArrayList<T>::Size() const
 template <typename T>
 size_t ArrayList<T>::Capacity() const
 {
-	this->mCapacity;
+	return this->mCapacity;
 }
 
 template <typename T>
 void ArrayList<T>::PushBack(T ele)
 {
-	if(data == nullptr){
+	if(this->mData == nullptr){
 		this->mCapacity = 2;
 		this->mSize = 1;
-		data = new T;
-		*data = ele;
+		this->mData = new T;
+		*this->mData = ele;
 	}
 	else if(this->mSize + 1 == this->mCapacity){
 		this->mCapacity = this->mCapacity * 2;
-		T* tempPtr = data;
-		data = new T[this->mCapacity]{0};
-		memcpy(data, tempPtr, sizeof(T) * this->mSize);
-		*(data + this->mSize) = else;
+		T* tempPtr = this->mData;
+		this->mData = new T[this->mCapacity]{0};
+		memcpy(this->mData, tempPtr, sizeof(T) * this->mSize);
+		*(this->mData + this->mSize) = ele;
 		this->mSize = this->mSize + 1;
-		this->mBegin = data;
-		this->mEnd = data + this->mSize - 1;
+		this->mBegin = this->mData;
+		this->mEnd = this->mData + this->mSize - 1;
 	}
 	else{
-		*(data + this->mSize) = else;
+		*(this->mData + this->mSize) = ele;
 		this->mSize = this->mSize + 1;
-		this->mEnd = data + this->mSize - 1;
+		this->mEnd = this->mData + this->mSize - 1;
 	}
 }
 

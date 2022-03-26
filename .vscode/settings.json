@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"list-extensions": "bat",
+		"array": "cpp",
+		"string": "cpp",
+		"string_view": "cpp"
+	}
+}
