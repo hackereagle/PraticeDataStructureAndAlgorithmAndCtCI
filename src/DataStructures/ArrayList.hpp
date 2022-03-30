@@ -11,6 +11,7 @@ public:
 	size_t Capacity() const;
 	void PushBack(T ele);
 	void PopBack(T ele);
+	T operator[](size_t i);
 
 private:
 	T* mData = nullptr;

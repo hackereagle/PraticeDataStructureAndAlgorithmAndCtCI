@@ -53,3 +53,11 @@ void ArrayList<T>::PushBack(T ele)
 template <typename T>
 void ArrayList<T>::PopBack(T ele)
 {}
+
+template <typename T>
+T ArrayList<T>::operator[](size_t i)
+{
+	if(i > this->mSize)
+		throw std::out_of_range("ArrayList");
+	return *(this->mData + i)
+}
