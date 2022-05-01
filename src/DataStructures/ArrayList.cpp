@@ -59,5 +59,7 @@ T ArrayList<T>::operator[](size_t i)
 {
 	if(i > this->mSize)
 		throw std::out_of_range("ArrayList");
-	return *(this->mData + i)
+	return *(this->mData + i);
 }
+
+template class ArrayList<int>;
