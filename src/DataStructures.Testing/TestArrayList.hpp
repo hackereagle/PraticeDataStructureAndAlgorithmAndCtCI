@@ -9,7 +9,9 @@ class TestArrayList
 {
 public:
 	TestArrayList()
-	{}
+	{
+		std::cout << "\n\n<<<<< Test ArrayList >>>>>" << std::endl;
+	}
 
 	~TestArrayList()
 	{}

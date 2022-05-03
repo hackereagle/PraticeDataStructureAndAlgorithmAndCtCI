@@ -27,6 +27,58 @@ public:
         this->mLen = this->mLen + str.size();
     }
 
+    void Append(int num)
+    {
+        if(this->mRet != ""){
+            this->mData.clear();
+            this->mData.push_back(this->mRet);
+            this->mRet = "";
+        }
+        
+        std::string str = std::to_string(num);
+        mData.push_back(str);
+        this->mLen = this->mLen + str.size();
+    }
+
+    void Append(double num)
+    {
+        if(this->mRet != ""){
+            this->mData.clear();
+            this->mData.push_back(this->mRet);
+            this->mRet = "";
+        }
+        
+        std::string str = std::to_string(num);
+        mData.push_back(str);
+        this->mLen = this->mLen + str.size();
+    }
+
+    void Append(float num)
+    {
+        if(this->mRet != ""){
+            this->mData.clear();
+            this->mData.push_back(this->mRet);
+            this->mRet = "";
+        }
+        
+        std::string str = std::to_string(num);
+        mData.push_back(str);
+        this->mLen = this->mLen + str.size();
+    }
+
+    void Append(bool _bool)
+    {
+        if(this->mRet != ""){
+            this->mData.clear();
+            this->mData.push_back(this->mRet);
+            this->mRet = "";
+        }
+        
+        std::string str = _bool ? "true" : "false";
+        mData.push_back(str);
+        this->mLen = this->mLen + str.size();
+    }
+
     std::string String()
     {
         char* ret = new char[this->mLen + 1];
