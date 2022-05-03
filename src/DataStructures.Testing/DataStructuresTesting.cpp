@@ -4,7 +4,8 @@
 int main(int argc, char** argv)
 {
 	TestArrayList testArrayList;
-	testArrayList.TestPushElements();
+	testArrayList.TestPushBackElements();
+	testArrayList.TestPopBackElements();
 	getchar();
 	return EXIT_SUCCESS;
 }
