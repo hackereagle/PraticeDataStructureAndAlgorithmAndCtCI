@@ -12,7 +12,7 @@ public:
     {}
 
     
-    StringBuilder() 
+    ~StringBuilder() 
     {}
 
     void Append(std::string str)
@@ -25,6 +25,19 @@ public:
         
         mData.push_back(str);
         this->mLen = this->mLen + str.size();
+    }
+
+    void Append(const char* str)
+    {
+        if(this->mRet != ""){
+            this->mData.clear();
+            this->mData.push_back(this->mRet);
+            this->mRet = "";
+        }
+        
+        std::string temp = std::string(str);
+        mData.push_back(temp);
+        this->mLen = this->mLen + temp.size();
     }
 
     void Append(int num)
@@ -48,7 +61,9 @@ public:
             this->mRet = "";
         }
         
-        std::string str = std::to_string(num);
+        char temp[4096];
+        sprintf(temp, "%f", num);
+        std::string str = std::string(temp);
         mData.push_back(str);
         this->mLen = this->mLen + str.size();
     }
@@ -91,6 +106,7 @@ public:
         *(ret + this->mLen) = '\0';
         this->mRet = std::string(ret);
         delete[] ret;
+        return this->mRet;
     }
 
 private:
