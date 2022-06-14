@@ -8,8 +8,8 @@ int main(int argc, char** argv)
 	// testArrayList.TestPushBackElements();
 	// testArrayList.TestPopBackElements();
 
-	TestStringBuilder testStringBuilder;
-	testStringBuilder.TestAppend();
+	// TestStringBuilder testStringBuilder;
+	// testStringBuilder.TestAppend();
 
 	getchar();
 	return EXIT_SUCCESS;

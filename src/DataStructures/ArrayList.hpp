@@ -42,6 +42,7 @@ public:
 			this->mSize = this->mSize + 1;
 			this->mBegin = this->mData;
 			this->mEnd = this->mData + this->mSize - 1;
+			delete [] tempPtr;
 		}
 		else{
 			*(this->mData + this->mSize) = ele;

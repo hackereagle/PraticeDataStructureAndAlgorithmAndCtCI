@@ -90,7 +90,9 @@ public:
 	}
 
 	bool IsEmpty()
-	{}
+	{
+		return mHead == nullptr;
+	}
 
 	void Reverse()
 	{}
@@ -102,8 +104,8 @@ public:
 
 
 private:
-	Node<T>* mHead;
-	Node<T>* mTail;
-	Node<T>* mCurrent;
-	size_t mLength;
+	Node<T>* mHead = nullptr;
+	Node<T>* mTail = nullptr;
+	Node<T>* mCurrent = nullptr;
+	size_t mLength = 0;
 };

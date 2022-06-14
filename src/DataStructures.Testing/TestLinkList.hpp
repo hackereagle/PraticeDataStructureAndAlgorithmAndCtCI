@@ -1,8 +1,33 @@
 #pragma once
 
 #include <iostream>
-#include "StringBuilder.hpp"
 #include "AssertClass.hpp"
+#include "LinkList.hpp"
 
 class TestLinkList
-{};
+{
+public:
+	TestLinkList()
+	{}
+
+	~TestLinkList()
+	{}
+
+	void TestPushBack()
+	{
+	}
+
+	void TestPushFront()
+	{
+	}
+
+	void TestPopBack()
+	{
+
+	}
+
+	void TestPopFront()
+	{
+
+	}
+};
