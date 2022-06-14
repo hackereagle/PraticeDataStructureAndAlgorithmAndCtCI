@@ -134,6 +134,7 @@ public:
 					delta2--;
 				}
 			}
+				
 		}
 		else{
 			int delta2 = this->mLength - index - 1;

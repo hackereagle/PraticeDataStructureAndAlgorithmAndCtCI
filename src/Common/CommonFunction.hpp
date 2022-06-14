@@ -1,6 +1,6 @@
 #pragma once
 
-#ifndef SWAP(a, b) 
+#ifndef SWAP 
 	#define SWAP(a, b)\
 		a = a ^ b; \
 		b = b ^ a; \
