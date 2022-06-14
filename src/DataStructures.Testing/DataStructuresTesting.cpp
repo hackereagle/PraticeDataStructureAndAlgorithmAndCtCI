@@ -1,6 +1,7 @@
 #include <iostream>
 #include "TestArrayList.hpp"
 #include "TestStringBuilder.hpp"
+#include "TestLinkList.hpp"
 
 int main(int argc, char** argv)
 {
@@ -10,6 +11,12 @@ int main(int argc, char** argv)
 
 	// TestStringBuilder testStringBuilder;
 	// testStringBuilder.TestAppend();
+
+	TestLinkList testLinkList;
+	testLinkList.TestPushBack();
+	testLinkList.TestPopBack();
+	testLinkList.TestPushFront();
+	testLinkList.TestPopFront();
 
 	getchar();
 	return EXIT_SUCCESS;
