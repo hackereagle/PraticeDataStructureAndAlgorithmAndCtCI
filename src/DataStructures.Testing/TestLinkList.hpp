@@ -27,7 +27,7 @@ public:
 		AssertClass::GetInstance().Assert(linkList.IsEmpty() == false, "Link list has element");
 		AssertClass::GetInstance().Assert(linkList.Length() == 5, "Link list length");
 		for(int i = 0; i < 5; i++)
-			AssertClass::GetInstance().Assert(linkList[i] == this->mTestData[i]);
+			AssertClass::GetInstance().Assert(linkList[i] == this->mTestData[i], "%d-th element value = %d", i, linkList[i]);
 	}
 
 	void TestPushFront()

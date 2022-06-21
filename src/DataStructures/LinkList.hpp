@@ -66,9 +66,11 @@ public:
 		if(!this->mHead){
 			this->mHead = new Node<T>(data);
 			this->mTail = this->mHead;
+			this->mCurrent = this->mHead;
+			this->mCurIndex = 0;
 		}
 		else{
-			this->mTail->Next = new Node<T>(data);
+			this->mTail->Next = new Node<T>(data, this->mTail);
 			this->mTail = this->mTail->Next;
 		}
 		this->mLength = this->mLength + 1;
@@ -76,14 +78,17 @@ public:
 
 	void PushFront(T data)
 	{
-		this->mHead = new Node<T>(data, this->mHead);
+		this->mHead = new Node<T>(data, nullptr, this->mHead);
+		this->mHead->Previous = this->mHead;
 		this->mLength = this->mLength + 1;
+		this->mCurIndex = this->mCurIndex + 1;
 	}
 
 	void PopBack(T data)
 	{
 		Node<T> *last = this->mTail;
 		this->mTail = this->mTail->Previous;
+		this->mTail->Next = nullptr;
 		delete last;
 		this->mLength = this->mLength - 1;
 	}
@@ -92,6 +97,7 @@ public:
 	{
 		Node<T> *first = this->mHead;
 		this->mHead = this->mHead->Next;
+		this->mHead->Previous = nullptr;
 		delete first;
 		this->mLength = this->mLength - 1;
 	}
@@ -123,14 +129,14 @@ public:
 			int delta2 = index - 0;
 			if(delta2 > delta){
 				while(delta > 0){
-					this->mCurrent = this->mCurrent->Previous;
+					this->mCurrent = this->mCurrent->Next;
 					delta--;
 				}
 			}
 			else{
 				this->mCurrent = mHead;
 				while (delta2 > 0) {
-					this->mCurrent = this->mCurrent->Next;
+					this->mCurrent = this->mCurrent->Previous;
 					delta2--;
 				}
 			}
@@ -141,14 +147,14 @@ public:
 			delta = Abs(delta);
 			if(delta2 > delta){
 				while(delta > 0){
-					this->mCurrent = this->mCurrent->Previous;
+					this->mCurrent = this->mCurrent->Next;
 					delta--;
 				}
 			}
 			else{
 				this->mCurrent = mTail;
 				while (delta2 > 0) {
-					this->mCurrent = this->mCurrent->Next;
+					this->mCurrent = this->mCurrent->Previous;
 					delta2--;
 				}
 			}
