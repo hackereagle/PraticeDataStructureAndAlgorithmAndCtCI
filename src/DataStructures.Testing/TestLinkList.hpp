@@ -32,6 +32,19 @@ public:
 
 	void TestPushFront()
 	{
+		LinkList<int> linkList;
+
+		int i = 0;
+		for(; i < 5; i++)
+			linkList.PushBack(this->mTestData[i]);
+		
+		linkList.PushFront(this->mTestData[i]);
+
+		AssertClass::GetInstance().Assert(linkList.IsEmpty() == false, "Link list has element");
+		AssertClass::GetInstance().Assert(linkList.Length() == 6, "Link list length");
+		AssertClass::GetInstance().Assert(linkList[0] == this->mTestData[i], "%d-th element value = %d", 0, linkList[0]);
+		for(int j = 0; j < 5; j++)
+			AssertClass::GetInstance().Assert(linkList[j + 1] == this->mTestData[j], "%d-th element value = %d", j + 1, linkList[j]);
 	}
 
 	void TestPopBack()
