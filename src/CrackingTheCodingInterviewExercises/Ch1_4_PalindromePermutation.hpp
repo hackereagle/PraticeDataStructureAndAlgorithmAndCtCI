@@ -1,4 +1,5 @@
 #pragma once
+
 #include <string>
 #include "TestClassBase.hpp"
 
@@ -11,13 +12,12 @@ public:
 	~Ch1_3_URLify()
 	{}
 
-	std::string Solution(std::string str, unsigned int trueStrLen) 
+	bool Solution(std::string str) 
 	{
-		std::string ret;
+		bool isPalindromePermutation = false;
 
-		ret =  "Mr\%20John\%20Smith";
 
-		return ret;
+		return isPalindromePermutation;
 	}
 
 private:
