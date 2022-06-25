@@ -28,7 +28,7 @@ public:
 		std::cout << NC << std::endl;
 	}
 
-	void Assert(bool condition, char* fmt, ...)
+	void Assert(bool condition, const char* fmt, ...)
 	{
 		std::string message;
 		va_list ap;
