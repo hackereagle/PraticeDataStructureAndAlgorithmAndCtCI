@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <stdarg.h>
+#include "AssertClass.hpp"
 
 class TestClassBase
 {
@@ -15,13 +17,16 @@ protected:
 
 	void Assert(bool condition, std::string msg = "")
 	{
-		if(condition){
-			std::cout << GRN << "OK:\t" << msg << std::endl;
-		}
-		else{
-			std::cout << RED << "NG:\t" << msg << std::endl;
-		}
-		std::cout << NC << std::endl;
+		AssertClass::GetInstance().Assert(condition, msg);
+	}
+
+	void Assert(bool condition, const char* fmt, ...)
+	{
+		va_list ap, *args_dig;
+		va_start(ap, fmt);
+		args_dig = va_arg(ap, va_list*);
+		AssertClass::GetInstance().Assert(condition, fmt, *args_dig);
+		va_end(ap);
 	}
 
 private:

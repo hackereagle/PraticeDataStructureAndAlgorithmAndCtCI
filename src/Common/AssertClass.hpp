@@ -59,13 +59,11 @@ private:
 
 	void va2String(std::string& str, const char* fmt, ...)
 	{
-		//mem_array<char, (1 << 16)> messageBuff;
 		unsigned int len = 1 << 16;
 		char* messageBuff = new char[len];
 		va_list ap, *args_dig;
 		va_start(ap, fmt);
 		args_dig = va_arg(ap, va_list*);
-		//vsnprintf(messageBuff.mData, (1 << 16), fmt, *args_dig);
 		vsnprintf(messageBuff, len, fmt, *args_dig);
 		va_end(ap);
 		str = std::string(messageBuff);
