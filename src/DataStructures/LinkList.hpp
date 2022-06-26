@@ -84,7 +84,7 @@ public:
 		this->mCurIndex = this->mCurIndex + 1;
 	}
 
-	void PopBack(T data)
+	void PopBack()
 	{
 		Node<T> *last = this->mTail;
 		this->mTail = this->mTail->Previous;
@@ -93,7 +93,7 @@ public:
 		this->mLength = this->mLength - 1;
 	}
 
-	void PopFront(T data)
+	void PopFront()
 	{
 		Node<T> *first = this->mHead;
 		this->mHead = this->mHead->Next;
