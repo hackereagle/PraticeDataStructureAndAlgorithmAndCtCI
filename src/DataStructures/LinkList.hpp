@@ -89,6 +89,10 @@ public:
 		Node<T> *last = this->mTail;
 		this->mTail = this->mTail->Previous;
 		this->mTail->Next = nullptr;
+		if(this->mCurrent == last){
+			this->mCurrent = this->mTail;
+			this->mCurIndex = this->mCurIndex - 1;
+		}
 		delete last;
 		this->mLength = this->mLength - 1;
 	}
@@ -98,6 +102,9 @@ public:
 		Node<T> *first = this->mHead;
 		this->mHead = this->mHead->Next;
 		this->mHead->Previous = nullptr;
+		if(this->mCurrent == first){
+			this->mCurrent = this->mHead;
+		}
 		delete first;
 		this->mLength = this->mLength - 1;
 	}

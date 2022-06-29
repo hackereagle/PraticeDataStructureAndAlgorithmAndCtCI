@@ -62,12 +62,21 @@ public:
 		AssertClass::GetInstance().Assert(linkList.Length() == 4, "After PopBack, length = %d", linkList.Length());
 		for(int i = 0; i < linkList.Length(); i++)
 			AssertClass::GetInstance().Assert(linkList[i] == this->mTestData[i], "%d-th element value = %d", i, linkList[i]);
-
 	}
 
 	void TestPopFront()
 	{
-
+		std::cout << "\n\n===== Testing PopFront =====" << std::endl;
+		LinkList<int> linkList;
+		
+		for(int i = 0; i < 5; i++)
+			linkList.PushBack(this->mTestData[i]);
+		AssertClass::GetInstance().Assert(linkList.Length() == 5, "After initialized, length = %d", linkList.Length());
+		
+		linkList.PopFront();
+		AssertClass::GetInstance().Assert(linkList.Length() == 4, "After PopBack, length = %d", linkList.Length());
+		for(int i = 0; i < linkList.Length(); i++)
+			AssertClass::GetInstance().Assert(linkList[i] == this->mTestData[i + 1], "%d-th element value = %d", i, linkList[i]);
 	}
 
 private:
